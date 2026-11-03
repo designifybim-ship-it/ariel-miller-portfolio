@@ -172,6 +172,21 @@ section { scroll-margin-top: 72px; }
 .tools li { border: 1.5px solid var(--line); background: var(--surface); padding: 7px 14px; border-radius: 10px; font-size: .88rem; font-weight: 500; }
 @media (max-width: 860px) { .about-grid, .skills { grid-template-columns: 1fr; } }
 
+/* Tools */
+#tools { padding-top: 0; }
+.toolgrid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.tool { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; align-items: start; padding: 20px; border-radius: 18px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); transition: transform .25s ease, box-shadow .25s ease; }
+.tool:hover { transform: translateY(-4px); box-shadow: 0 0 0 2px transparent, 0 18px 40px -22px rgba(132, 32, 244, .55); background: linear-gradient(var(--surface), var(--surface)) padding-box, var(--grad) border-box; border: 2px solid transparent; padding: 18px; }
+.tool-mark { grid-row: span 2; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--grad); background-size: 180% 180%; animation: gradshift 9s ease-in-out infinite; color: #fff; font-weight: 800; font-size: 1.05rem; letter-spacing: -.02em; box-shadow: 0 10px 22px -12px var(--accent); }
+.tool h3 { font-size: 1.02rem; font-weight: 700; letter-spacing: -.01em; margin: 2px 0 2px; }
+.tool p { margin: 0; font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.tool-tag { grid-column: 2; justify-self: start; margin-top: 6px; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: linear-gradient(100deg, rgba(132, 32, 244, .10), rgba(193, 13, 221, .10), rgba(21, 147, 245, .10)); color: var(--accent); }
+.tool:nth-child(3n+2) .tool-mark { animation-delay: -3s; }
+.tool:nth-child(3n) .tool-mark { animation-delay: -6s; }
+@media (max-width: 960px) { .toolgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .toolgrid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .tool, .tool-mark { transition: none; animation: none; } }
+
 /* Kind words */
 .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 48px); }
 .quotes figure { margin: 0; }
@@ -225,6 +240,7 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
       <a href="#work">Work</a>
       <a class="hide-sm" href="#about">Experience</a>
       <a class="hide-sm" href="#skills">Skills</a>
+      <a class="hide-sm" href="#tools">Tools</a>
       <a class="nav-cta" href="ariel-miller-resume.pdf" target="_blank" rel="noopener">Résumé</a>
     </nav>
   </div>
@@ -483,9 +499,6 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
           <ul><li>Website design &amp; creation</li><li>Website content management</li><li>UI mockups</li><li>Digital business setup</li></ul>
         </div>
       </div>
-      <ul class="tools" aria-label="Tools">
-        <li>Canva</li><li>Figma</li><li>Affinity Designer</li><li>Affinity Photo</li><li>Affinity Publisher</li><li>Adobe Express</li><li>CapCut</li><li>Alight Motion</li><li>Microsoft Word, Excel, PowerPoint</li>
-      </ul>
 
       <div class="edu">
         <div>
@@ -504,6 +517,65 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
           </ul>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="sec" id="tools">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Toolkit</p>
+          <h2>Tools <span class="serif">I use</span></h2>
+          <p>The software behind my designs, photos, videos and websites.</p>
+        </div>
+      </div>
+      <ul class="toolgrid">
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Cv</span>
+          <div><h3>Canva</h3><p>Social media posts, flyers and branded templates</p></div>
+          <span class="tool-tag">Design</span>
+        </li>
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Fg</span>
+          <div><h3>Figma</h3><p>Website layouts, UI mockups and design systems</p></div>
+          <span class="tool-tag">Web & UI</span>
+        </li>
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Ad</span>
+          <div><h3>Affinity Designer</h3><p>Logos, vector illustrations and brand identities</p></div>
+          <span class="tool-tag">Design</span>
+        </li>
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Ph</span>
+          <div><h3>Affinity Photo</h3><p>Photo editing, retouching and product cut-outs</p></div>
+          <span class="tool-tag">Photo</span>
+        </li>
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Pb</span>
+          <div><h3>Affinity Publisher</h3><p>Menus, price lists and print-ready layouts</p></div>
+          <span class="tool-tag">Print</span>
+        </li>
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Ex</span>
+          <div><h3>Adobe Express</h3><p>Quick social graphics and resizing for each platform</p></div>
+          <span class="tool-tag">Design</span>
+        </li>
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Cc</span>
+          <div><h3>CapCut</h3><p>Reels, TikToks and short-form video edits</p></div>
+          <span class="tool-tag">Video</span>
+        </li>
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Am</span>
+          <div><h3>Alight Motion</h3><p>Motion graphics and animated text</p></div>
+          <span class="tool-tag">Motion</span>
+        </li>
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Ms</span>
+          <div><h3>Microsoft Office</h3><p>Word, Excel, PowerPoint and Outlook for documents and presentations</p></div>
+          <span class="tool-tag">Productivity</span>
+        </li>
+      </ul>
     </div>
   </section>
 
