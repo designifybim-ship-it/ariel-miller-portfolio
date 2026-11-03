@@ -172,6 +172,36 @@ section { scroll-margin-top: 72px; }
 .tools li { border: 1.5px solid var(--line); background: var(--surface); padding: 7px 14px; border-radius: 10px; font-size: .88rem; font-weight: 500; }
 @media (max-width: 860px) { .about-grid, .skills { grid-template-columns: 1fr; } }
 
+/* Websites */
+#websites { padding-top: 0; }
+.sites { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.site { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(22px, 4vw, 48px); align-items: center; padding: clamp(18px, 2.4vw, 28px); border-radius: 24px; background: var(--surface); box-shadow: 0 0 0 1px var(--line), 0 30px 70px -40px rgba(79, 35, 120, .45); position: relative; overflow: hidden; }
+.site::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--grad); }
+.browser { display: block; text-decoration: none; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px var(--line), 0 24px 50px -28px rgba(79, 35, 120, .55); transition: transform .3s ease; }
+.browser:hover { transform: translateY(-4px); }
+.browser-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: var(--grad-soft); border-bottom: 1px solid var(--line); }
+.browser-bar i { width: 10px; height: 10px; border-radius: 50%; background: #FF5F57; }
+.browser-bar i:nth-child(2) { background: #FEBC2E; }
+.browser-bar i:nth-child(3) { background: #28C840; }
+.browser-url { margin-left: 10px; flex: 1; font-size: .78rem; color: var(--muted); background: #fff; border-radius: 999px; padding: 4px 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.browser-view { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--grad); background-size: 180% 180%; animation: gradshift 10s ease-in-out infinite; }
+.browser-fallback { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; color: #fff; gap: 4px; }
+.browser-fallback b { font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -.02em; }
+.browser-fallback small { font-size: .85rem; opacity: .85; }
+.browser-view iframe { position: absolute; top: 0; left: 0; width: 1280px; height: 800px; border: 0; background: transparent; transform-origin: 0 0; transform: scale(var(--s, .5)); pointer-events: none; }
+.site-client { margin: 0 0 6px; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.site h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 800; letter-spacing: -.03em; margin: 0 0 10px; }
+.site-meta > p:not(.site-client) { margin: 0 0 16px; color: var(--muted); font-size: .95rem; }
+.site-meta .tags { margin-bottom: 22px; }
+.site-soon { grid-template-columns: 1fr; background: var(--grad-soft) padding-box, var(--grad) border-box; border: 2px solid transparent; box-shadow: 0 24px 60px -40px rgba(79, 35, 120, .45); }
+.site-soon::before { display: none; }
+.soon-inner { text-align: center; padding: clamp(18px, 3vw, 34px) 12px; }
+.soon-badge { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--grad); background-size: 180% 180%; animation: gradshift 8s ease-in-out infinite; padding: 6px 14px; border-radius: 999px; margin-bottom: 14px; }
+.soon-inner h3 { margin: 0 0 8px; }
+.soon-inner p { margin: 0 auto; max-width: 48ch; color: var(--muted); }
+@media (max-width: 860px) { .site { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .browser, .browser-view, .soon-badge { transition: none; animation: none; } }
+
 /* Tools */
 #tools { padding-top: 0; }
 .toolgrid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
@@ -237,6 +267,7 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
     <a class="mark" href="#top"><b>A</b> Ariel Miller</a>
     <nav class="nav" aria-label="Sections">
       <a href="#work">Work</a>
+      <a class="hide-sm" href="#websites">Websites</a>
       <a class="hide-sm" href="#about">Experience</a>
       <a class="hide-sm" href="#skills">Skills</a>
       <a class="hide-sm" href="#tools">Tools</a>
@@ -429,6 +460,43 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
     </div>
   </section>
 
+  <section class="sec" id="websites">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Web design</p>
+          <h2>Websites <span class="serif">I've built</span></h2>
+          <p>I design and build websites for small businesses, both custom-built and with Wix and Wix Studio.</p>
+        </div>
+      </div>
+      <div class="sites">
+        <article class="site">
+          <a class="browser" href="https://de-patisserie-246.vercel.app/" target="_blank" rel="noopener" aria-label="Visit the De' Patisserie 246 website">
+            <span class="browser-bar"><i></i><i></i><i></i><span class="browser-url">de-patisserie-246.vercel.app</span></span>
+            <span class="browser-view">
+              <span class="browser-fallback"><b>De' Patisserie 246</b><small>Live site preview</small></span>
+              <iframe src="https://de-patisserie-246.vercel.app/" title="De' Patisserie 246 website preview" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+            </span>
+          </a>
+          <div class="site-meta">
+            <p class="site-client">Client website · Bakery</p>
+            <h3>De' Patisserie 246</h3>
+            <p>An online ordering site for a Barbados home bakery's weekly "Saturday Treats" cinnamon roll drop. Customers browse the menu, build a mixed box with a live running total, and send their order straight to WhatsApp. It also has a countdown to Saturday, an About page and clear ordering policies.</p>
+            <ul class="tags"><li>Website design</li><li>Custom build</li><li>Box builder</li><li>WhatsApp ordering</li><li>Mobile friendly</li></ul>
+            <a class="btn btn-main" href="https://de-patisserie-246.vercel.app/" target="_blank" rel="noopener">Visit site ↗</a>
+          </div>
+        </article>
+        <article class="site site-soon">
+          <div class="soon-inner">
+            <span class="soon-badge">Coming soon</span>
+            <h3>More client sites on the way</h3>
+            <p>New websites built with Wix, Wix Studio and custom code will be added here as they launch.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="sec about" id="about">
     <div class="wrap about-grid">
       <div class="about-copy">
@@ -495,7 +563,7 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
         </div>
         <div class="skill">
           <h3>Web</h3>
-          <ul><li>Website design &amp; creation</li><li>Website content management</li><li>UI mockups</li><li>Digital business setup</li></ul>
+          <ul><li>Website design &amp; creation</li><li>Wix &amp; Wix Studio</li><li>Website content management</li><li>UI mockups</li><li>Digital business setup</li></ul>
         </div>
       </div>
 
@@ -538,6 +606,16 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
           <span class="tool-mark" aria-hidden="true">Fg</span>
           <div><h3>Figma</h3><p>Website layouts, UI mockups and design systems</p></div>
           <span class="tool-tag">Web & UI</span>
+        </li>
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Wx</span>
+          <div><h3>Wix</h3><p>Business websites, bookings and online stores</p></div>
+          <span class="tool-tag">Web</span>
+        </li>
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Ws</span>
+          <div><h3>Wix Studio</h3><p>Custom, responsive client websites</p></div>
+          <span class="tool-tag">Web</span>
         </li>
         <li class="tool">
           <span class="tool-mark" aria-hidden="true">Ps</span>
@@ -677,6 +755,12 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
   document.getElementById('lb-close').addEventListener('click', close);
   lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
 
+
+  // Scale each live site preview (rendered at 1280px wide) down to fit its browser frame.
+  var views = document.querySelectorAll('.browser-view');
+  function fit() { views.forEach(function (v) { v.style.setProperty('--s', (v.clientWidth / 1280).toFixed(4)); }); }
+  fit();
+  if (window.ResizeObserver) { var ro = new ResizeObserver(fit); views.forEach(function (v) { ro.observe(v); }); } else { window.addEventListener('resize', fit); }
   // Hero flyers: zoom in toward the viewer, settle into the stack, then fly away and return as a new design.
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var slots = Array.prototype.slice.call(document.querySelectorAll('.flyer'));
