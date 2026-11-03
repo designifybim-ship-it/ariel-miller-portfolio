@@ -277,6 +277,65 @@ html.js .tool[data-reveal].in:hover { transform: translateY(-4px); transition-de
   .ico, .ping, .intro { animation: none; }
 }
 
+/* Experience timeline */
+.about-grid { align-items: start; }
+.about .pull { font-size: clamp(1.4rem, 2.6vw, 2.1rem) !important; line-height: 1.25; margin: 0 !important; }
+.about-copy p { margin: 0 0 12px; }
+.xp { position: relative; }
+.xp-rail { position: absolute; left: 50%; top: 6px; bottom: 6px; width: 3px; margin-left: -1.5px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.xp-fill { position: absolute; inset: 0 0 auto 0; height: var(--p, 100%); background: linear-gradient(180deg, #8420F4, #C10DDD 55%, #1593F5); border-radius: 3px; }
+.xp-items { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.xp-item { position: relative; display: grid; grid-template-columns: 1fr 64px 1fr; align-items: start; }
+.xp-dot { grid-column: 2; grid-row: 1; justify-self: center; display: grid; place-items: center; width: 46px; height: 46px; margin-top: 10px; border-radius: 14px; color: #fff; background: var(--grad); background-size: 180% 180%; animation: gradshift 9s ease-in-out infinite; box-shadow: 0 0 0 6px var(--canvas), 0 12px 24px -10px var(--accent); position: relative; z-index: 1; }
+.xp-dot .i { width: 22px; height: 22px; }
+.xp-card { grid-row: 1; min-width: 0; position: relative; padding: 18px 20px; border-radius: 18px; background: var(--surface); box-shadow: 0 0 0 1px var(--line), 0 20px 44px -32px rgba(79, 35, 120, .5); transition: transform .3s ease, box-shadow .3s ease; }
+.xp-card:hover { transform: translateY(-3px); box-shadow: 0 0 0 1.5px var(--accent-2), 0 24px 50px -28px rgba(132, 32, 244, .55); }
+.xp-left .xp-card { grid-column: 1; }
+.xp-right .xp-card { grid-column: 3; }
+.xp-card::before { content: ""; position: absolute; top: 24px; width: 14px; height: 14px; background: var(--surface); transform: rotate(45deg); }
+.xp-left .xp-card::before { right: -7px; box-shadow: 1px -1px 0 var(--line); }
+.xp-right .xp-card::before { left: -7px; box-shadow: -1px 1px 0 var(--line); }
+.xp-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; margin-bottom: 6px; }
+.xp-date { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.xp-date .i { width: 15px; height: 15px; }
+.xp-badge { display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+.xp-badge.now { color: #128a3e; background: rgba(29, 185, 84, .12); }
+.xp-badge.promo { color: #fff; background: var(--grad); }
+.xp-badge .i { width: 14px; height: 14px; }
+.xp-card h3 { font-size: 1.12rem; font-weight: 700; letter-spacing: -.015em; margin: 0 0 2px; line-height: 1.3; }
+.xp-org { display: flex; align-items: center; gap: 6px; margin: 0 0 8px; font-size: .9rem; font-weight: 500; color: var(--muted); }
+.xp-org .i { width: 15px; height: 15px; color: var(--accent); }
+.xp-note { margin: 0 0 8px; font-size: .86rem; font-style: italic; color: var(--ink); }
+.xp-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+.xp-list li { position: relative; padding-left: 16px; font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.xp-list li::before { content: ""; position: absolute; left: 0; top: .6em; width: 7px; height: 7px; border-radius: 2px; background: var(--grad); }
+html.js .xp-item .xp-card { opacity: 0; }
+html.js .xp-item.xp-left:not(.in) .xp-card { transform: translateX(-46px); }
+html.js .xp-item.xp-right:not(.in) .xp-card { transform: translateX(46px); }
+html.js .xp-item .xp-dot { transform: scale(0) rotate(-45deg); }
+html.js .xp-item.in .xp-card { opacity: 1; transform: none; transition: opacity .7s ease .12s, transform .9s cubic-bezier(.2, .8, .2, 1) .12s, box-shadow .3s ease; }
+html.js .xp-item.in .xp-dot { transform: none; transition: transform .7s cubic-bezier(.34, 1.56, .64, 1); }
+html.js .xp-item.in .xp-card:hover { transform: translateY(-3px); transition-delay: 0s; }
+html.js .xp-item .xp-list li { opacity: 0; transform: translateY(8px); }
+html.js .xp-item.in .xp-list li { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s ease; }
+html.js .xp-item.in .xp-list li:nth-child(1) { transition-delay: .45s; }
+html.js .xp-item.in .xp-list li:nth-child(2) { transition-delay: .55s; }
+html.js .xp-item.in .xp-list li:nth-child(3) { transition-delay: .65s; }
+html.js .xp-item.in .xp-list li:nth-child(4) { transition-delay: .75s; }
+html.js .xp-item.in .xp-list li:nth-child(5) { transition-delay: .85s; }
+@media (max-width: 860px) {
+  .xp-rail { left: 23px; }
+  .xp-item { grid-template-columns: 46px minmax(0, 1fr); gap: 0 14px; }
+  .xp-dot { grid-column: 1; margin-top: 8px; }
+  .xp-left .xp-card, .xp-right .xp-card { grid-column: 2; }
+  .xp-left .xp-card::before { right: auto; left: -7px; box-shadow: -1px 1px 0 var(--line); }
+  html.js .xp-item:not(.in) .xp-card { transform: translateX(30px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .xp-item .xp-card, html.js .xp-item .xp-dot, html.js .xp-item .xp-list li { opacity: 1 !important; transform: none !important; }
+  .xp-dot { animation: none; }
+}
+
 /* Kind words */
 .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 48px); }
 .quotes figure { margin: 0; }
@@ -338,7 +397,7 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
     <nav class="nav" aria-label="Sections">
       <a href="#work">Work</a>
       <a class="hide-sm" href="#websites">Websites</a>
-      <a class="hide-sm" href="#about">Experience</a>
+      <a class="hide-sm" href="#experience">Experience</a>
       <a class="hide-sm" href="#skills">Skills</a>
       <a class="hide-sm" href="#tools">Tools</a>
       <a class="nav-cta" href="ariel-miller-resume.pdf" target="_blank" rel="noopener">Résumé</a>
@@ -556,45 +615,84 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
 
   <section class="sec about" id="about">
     <div class="wrap about-grid">
-      <div class="about-copy">
+      <div>
         <p class="eyebrow"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>About me</p>
         <p class="pull">I notice design everywhere: the menu on the table, the sign above the shop, the font on the flyer.</p>
+      </div>
+      <div class="about-copy">
         <p>I'm Ariel, a 25-year-old designer from St. Michael, Barbados. I care about how colour, type and layout make people feel, and I'll try version after version until a design says exactly what a business means.</p>
         <p>At <strong>Altus Regional Consulting Solutions</strong> I created social media content, branded communications and marketing collateral, managed website updates and owned the firm's visual identity across digital and print. Through my own studio, <strong>Designify</strong>, I've designed logos, menus, packaging and social campaigns for small businesses across Barbados, and I designed and built the studio's website myself.</p>
         <p>I also bring a customer-facing background from contact-centre and retail roles, so I design with the customer in mind.</p>
       </div>
-      <div>
-        <h2 class="h-small">Experience</h2>
-        <ol class="timeline">
-          <li class="now">
-            <span class="when">Sep 2026 – Present</span>
-            <h3>Temporary Clerk, Legal &amp; Administrative Support</h3>
-            <p class="org">Altus Chambers</p>
-            <p class="what">Document preparation and formatting, correspondence, confidential records.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>Experience</p>
+          <h2>Where I've <span class="serif">worked</span></h2>
+          <p>Every role, newest first.</p>
+        </div>
+      </div>
+      <div class="xp">
+        <span class="xp-rail" aria-hidden="true"><span class="xp-fill"></span></span>
+        <ol class="xp-items">
+          <li class="xp-item xp-left">
+            <span class="xp-dot" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 21h14M6 7h12M6 7l-3 7a3 3 0 0 0 6 0zM18 7l-3 7a3 3 0 0 0 6 0z"/></svg></span>
+            <article class="xp-card">
+              <div class="xp-top"><span class="xp-date"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>September 2026 – Present</span><span class="xp-badge now"><span class="ping" aria-hidden="true"></span>Current</span></div>
+              <h3>Temporary Clerk, Legal &amp; Administrative Support</h3>
+              <p class="xp-org"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>Altus Chambers</p>
+              <ul class="xp-list"><li>Provide temporary clerical and administrative support in relation to legal and business matters.</li><li>Prepare, type, scan and organize professional and legal documentation.</li><li>Assist with correspondence, document formatting and record management.</li><li>Maintain confidential files and handle sensitive information with discretion and accuracy.</li></ul>
+            </article>
           </li>
-          <li>
-            <span class="when">Jan 2026 – Aug 2026</span>
-            <h3>Communications &amp; Creative Design Specialist</h3>
-            <p class="org">Altus Regional Consulting Solutions</p>
-            <p class="what">Promoted from Coordinator. Led social content, branded communications and marketing collateral; managed website content; owned the firm's visual identity; built templates used across the firm.</p>
+          <li class="xp-item xp-right">
+            <span class="xp-dot" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><path d="M12 2a10 10 0 0 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2h2.4A5.6 5.6 0 0 0 22 9.8C22 5.5 17.5 2 12 2z"/></svg></span>
+            <article class="xp-card">
+              <div class="xp-top"><span class="xp-date"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>January 2026 – August 2026</span><span class="xp-badge promo"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg>Promoted</span></div>
+              <h3>Communications &amp; Creative Design Specialist</h3>
+              <p class="xp-org"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>Altus Regional Consulting Solutions</p>
+              <p class="xp-note">Promoted from Creative Design Coordinator in recognition of strong contributions to the firm's communications, branding, and digital engagement initiatives.</p>
+              <ul class="xp-list"><li>Lead the development of creative assets, branded communications, social media content, and marketing collateral that support firm-wide objectives and elevate brand visibility.</li><li>Manage website content updates and digital platform maintenance, ensuring web-based resources stay current, on-brand, and user-friendly.</li><li>Partner with internal stakeholders to align communications with brand strategy, organizational values, and audience needs.</li><li>Design and standardize professional templates and visual communication tools used across the firm to streamline project delivery.</li><li>Own the firm's visual identity across digital and print platforms, from concept through execution.</li></ul>
+            </article>
           </li>
-          <li>
-            <span class="when">Aug 2025 – Jan 2026</span>
-            <h3>Creative Design Coordinator</h3>
-            <p class="org">Altus Regional Consulting Solutions</p>
-            <p class="what">Produced campaign graphics and promotional materials; coordinated content and campaign logistics.</p>
+          <li class="xp-item xp-left">
+            <span class="xp-dot" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></svg></span>
+            <article class="xp-card">
+              <div class="xp-top"><span class="xp-date"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>August 2025 – January 2026</span></div>
+              <h3>Creative Design Coordinator</h3>
+              <p class="xp-org"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>Altus Regional Consulting Solutions</p>
+              <ul class="xp-list"><li>Produced visual assets, branded materials, and promotional graphics for marketing and social media campaigns.</li><li>Coordinated content development and campaign logistics to support audience engagement initiatives.</li><li>Assisted with document design projects, helping maintain visual consistency across client-facing materials.</li><li>Contributed creative solutions that improved organizational visibility and strengthened brand consistency.</li></ul>
+            </article>
           </li>
-          <li>
-            <span class="when">Ongoing</span>
-            <h3>Designer &amp; Founder</h3>
-            <p class="org">Designify</p>
-            <p class="what">Brand identities, social media graphics, menus, packaging and websites for small businesses in Barbados.</p>
+          <li class="xp-item xp-right">
+            <span class="xp-dot" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>
+            <article class="xp-card">
+              <div class="xp-top"><span class="xp-date"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>February 2025 – March 2025</span></div>
+              <h3>Cashier</h3>
+              <p class="xp-org"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>Unicomer Barbados</p>
+              <ul class="xp-list"><li>Processed transactions and assisted customers with account inquiries and payment solutions while maintaining compliance with company procedures.</li></ul>
+            </article>
           </li>
-          <li>
-            <span class="when">2022 – 2025</span>
-            <h3>Customer Service, Collections &amp; Cashier</h3>
-            <p class="org">KM2 Solutions · Unicomer Barbados</p>
-            <p class="what">Phone and email support, account management and payment arrangements.</p>
+          <li class="xp-item xp-left">
+            <span class="xp-dot" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <article class="xp-card">
+              <div class="xp-top"><span class="xp-date"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>November 2023 – March 2024</span></div>
+              <h3>Collections Agent</h3>
+              <p class="xp-org"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>KM2 Solutions</p>
+              <ul class="xp-list"><li>Managed customer accounts and negotiated payment arrangements through professional communication and accurate record-keeping.</li></ul>
+            </article>
+          </li>
+          <li class="xp-item xp-right">
+            <span class="xp-dot" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 15a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2zM3 15a2 2 0 0 0 2 2h1v-5H5a2 2 0 0 0-2 2z"/></svg></span>
+            <article class="xp-card">
+              <div class="xp-top"><span class="xp-date"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>November 2022 – December 2022</span></div>
+              <h3>Customer Service Representative</h3>
+              <p class="xp-org"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>KM2 Solutions</p>
+              <ul class="xp-list"><li>Delivered customer support via phone and email, resolving inquiries and maintaining detailed records.</li></ul>
+            </article>
           </li>
         </ol>
       </div>
@@ -816,7 +914,7 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
 
   // Reveal sections as they scroll into view.
   if (!reduceMotion && 'IntersectionObserver' in window) {
-    var groups = ['.sec-head', '.proj', '.site', '.skill', '.tool', '.quotes figure', '.timeline li', '.about-copy', '.edu > div', '.contact .wrap > *', '.filters'];
+    var groups = ['.sec-head', '.proj', '.site', '.skill', '.tool', '.quotes figure', '.about-copy', '.edu > div', '.contact .wrap > *', '.filters'];
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
     }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
@@ -830,6 +928,29 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
     });
   }
 
+
+  // Experience: cards slide in from their side, and the gradient rail fills as you scroll through.
+  var xp = document.querySelector('.xp'), fill = document.querySelector('.xp-fill');
+  var xpItems = document.querySelectorAll('.xp-item');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    xpItems.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var xio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); xio.unobserve(en.target); } });
+    }, { threshold: .2, rootMargin: '0px 0px -8% 0px' });
+    xpItems.forEach(function (el) { xio.observe(el); });
+    var ticking = false;
+    function railProgress() {
+      ticking = false;
+      var r = xp.getBoundingClientRect(), vh = window.innerHeight;
+      var k = (vh * .72 - r.top) / r.height;
+      fill.style.setProperty('--p', (Math.max(0, Math.min(1, k)) * 100).toFixed(1) + '%');
+    }
+    fill.style.setProperty('--p', '0%');
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(railProgress); } }, { passive: true });
+    window.addEventListener('resize', railProgress);
+    railProgress();
+  }
   var chips = document.querySelectorAll('.chip');
   var projects = document.querySelectorAll('.proj');
   chips.forEach(function (c) {
