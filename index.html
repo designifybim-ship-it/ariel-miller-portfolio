@@ -76,16 +76,15 @@ h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
 .stats span { font-size: .82rem; color: var(--muted); }
 
 .stage { position: relative; height: clamp(420px, 46vw, 560px); }
-.halo { position: absolute; left: 50%; bottom: 0; width: 86%; aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle at 70% 80%, var(--blue), transparent 55%), radial-gradient(circle at 25% 20%, var(--accent-2), var(--purple2) 45%, var(--accent) 75%); }
-.flyer { position: absolute; width: 38%; border-radius: 14px; overflow: hidden; box-shadow: 0 22px 44px -18px rgba(34, 15, 60, .55); border: 4px solid var(--surface); transform: translate(var(--x), var(--y)) rotate(var(--r)); animation: fan .95s cubic-bezier(.2, .8, .2, 1) both; animation-delay: var(--d); }
+.glow { position: absolute; left: 50%; bottom: 4%; width: 78%; aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(163, 28, 240, .10), rgba(21, 147, 245, .05) 60%, transparent); }
+.flyer { position: absolute; width: 38%; border-radius: 14px; overflow: hidden; box-shadow: 0 22px 44px -18px rgba(34, 15, 60, .55); border: 4px solid var(--surface); transform: translate(var(--x), var(--y)) rotate(var(--r)); will-change: transform, opacity, filter; pointer-events: none; z-index: 1; }
 .flyer img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .f1 { --x: -6%; --y: 8%; --r: -11deg; --d: .05s; left: 0; top: 4%; }
 .f2 { --x: 6%; --y: 0%; --r: 9deg; --d: .15s; right: 0; top: 0; }
-.f3 { --x: 0%; --y: 0%; --r: -4deg; --d: .25s; right: 4%; bottom: 6%; width: 30%; z-index: 3; }
-.pop { position: absolute; left: 50%; bottom: 0; width: 86%; aspect-ratio: 1; transform: translateX(-50%); z-index: 2; }
-.portrait { width: 100%; height: 100%; max-width: none; object-fit: contain; filter: drop-shadow(0 18px 30px rgba(34, 15, 60, .28)); -webkit-mask-image: radial-gradient(circle closest-side at 50% 50%, #000 99.3%, transparent 100%), linear-gradient(to bottom, #000 0%, #000 46%, transparent 46%); mask-image: radial-gradient(circle closest-side at 50% 50%, #000 99.3%, transparent 100%), linear-gradient(to bottom, #000 0%, #000 46%, transparent 46%); }
-@keyframes fan { from { transform: translate(0, 12%) rotate(0deg); } }
-@media (prefers-reduced-motion: reduce) { .flyer { animation: none; } html { scroll-behavior: auto; } .btn { transition: none; } }
+.f3 { --x: 0%; --y: 0%; --r: -4deg; --d: .25s; right: 0; bottom: 8%; width: 30%; z-index: 3; }
+.pop { position: absolute; left: 50%; bottom: 0; width: 100%; aspect-ratio: 1; transform: translateX(-46%); z-index: 2; }
+.portrait { width: 100%; height: 100%; max-width: none; object-fit: contain; -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 99%); mask-image: linear-gradient(to bottom, #000 74%, transparent 99%); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
 
 @media (max-width: 860px) {
   .hero .wrap { grid-template-columns: 1fr; }
@@ -243,11 +242,11 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
         </ul>
       </div>
       <div class="stage" aria-hidden="true">
-        <div class="halo"></div>
-        <div class="flyer f1"><img src="assets/images/portfolio/tre-hair/01.webp" alt=""></div>
-        <div class="flyer f2"><img src="assets/images/portfolio/crumbles-cookies/05.webp" alt=""></div>
+        <div class="glow"></div>
+        <div class="flyer f1" data-x="-6" data-y="8" data-r="-11" data-out="-1"><img src="assets/images/portfolio/tre-hair/01.webp" alt=""></div>
+        <div class="flyer f2" data-x="6" data-y="0" data-r="9" data-out="1"><img src="assets/images/portfolio/crumbles-cookies/05.webp" alt=""></div>
         <div class="pop"><img class="portrait" src="assets/images/ariel-portrait.webp" alt="" width="1000" height="1000"></div>
-        <div class="flyer f3"><img src="assets/images/portfolio/epic-eats/01.webp" alt=""></div>
+        <div class="flyer f3" data-x="0" data-y="0" data-r="-4" data-out="1"><img src="assets/images/portfolio/epic-eats/01.webp" alt=""></div>
       </div>
     </div>
   </section>
@@ -587,6 +586,56 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
   document.getElementById('lb-next').addEventListener('click', function () { show(idx + 1); });
   document.getElementById('lb-close').addEventListener('click', close);
   lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+
+  // Hero flyers: zoom in toward the viewer, settle into the stack, then fly away and return as a new design.
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slots = Array.prototype.slice.call(document.querySelectorAll('.flyer'));
+  if (!reduce && slots.length && document.body.animate) {
+    var pool = ['tre-hair/01','crumbles-cookies/05','epic-eats/01','sugared-by-bri/01','tre-hair/04','unique-waffle-bites/01',
+                'crave-and-co/04','crumbles-cookies/02','tre-hair/02','epic-eats/05','crave-and-co/01','unique-waffle-bites/02']
+               .map(function (p) { return 'assets/images/portfolio/' + p + '.webp'; });
+    pool.forEach(function (src) { var i = new Image(); i.src = src; });
+    var next = slots.length;
+    var HOLD = 2600, IN = 1150, OUT = 850;
+    function rest(el, extra) {
+      return 'translate(' + el.dataset.x + '%, ' + el.dataset.y + '%) rotate(' + el.dataset.r + 'deg)' + (extra || '');
+    }
+    function flyIn(el) {
+      var r = +el.dataset.r, dir = +el.dataset.out;
+      return el.animate([
+        { transform: 'translate(' + (-dir * 30) + '%, 18%) rotate(' + (r - dir * 18) + 'deg) scale(2.7)', opacity: 0, filter: 'blur(14px)' },
+        { transform: rest(el, ' scale(1.07)'), opacity: 1, filter: 'blur(0px)', offset: .72 },
+        { transform: rest(el, ' scale(1)'), opacity: 1, filter: 'blur(0px)' }
+      ], { duration: IN, easing: 'cubic-bezier(.16, .84, .3, 1)', fill: 'forwards' });
+    }
+    function flyOut(el) {
+      var r = +el.dataset.r, dir = +el.dataset.out;
+      return el.animate([
+        { transform: rest(el, ' scale(1)'), opacity: 1, filter: 'blur(0px)' },
+        { transform: 'translate(' + (dir * 160) + '%, -70%) rotate(' + (r + dir * 34) + 'deg) scale(.32)', opacity: 0, filter: 'blur(3px)' }
+      ], { duration: OUT, easing: 'cubic-bezier(.55, 0, .8, .4)', fill: 'forwards' });
+    }
+    function cycle(el) {
+      var a = flyIn(el);
+      a.onfinish = function () {
+        setTimeout(function () {
+          var b = flyOut(el);
+          b.onfinish = function () {
+            el.querySelector('img').src = pool[next % pool.length];
+            next++;
+            a.cancel(); b.cancel();
+            el.style.opacity = '0';
+            cycle(el);
+            el.style.opacity = '';
+          };
+        }, HOLD);
+      };
+    }
+    slots.forEach(function (el, i) {
+      el.style.opacity = '0';
+      setTimeout(function () { el.style.opacity = ''; cycle(el); }, 250 + i * 1300);
+    });
+  }
   document.addEventListener('keydown', function (e) {
     if (!lb.open) return;
     if (e.key === 'ArrowLeft') show(idx - 1);
