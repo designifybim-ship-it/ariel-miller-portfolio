@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ariel Miller Portfolio</title>
+<meta name="description" content="Ariel Miller, 25, graphic designer and social media content creator in St. Michael, Barbados. Brand identity, social media graphics, photography, video and websites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Designify brand: lavender canvas with a faint dot grid, violet ink, the purple-pink-blue brand gradient used one place at a time.
+     Layout: a flyer-stack hero, then the work as scrollable strips by brand, then experience, kind words, contact. */
+  --canvas: #FBF9FE;
+  --surface: #FFFFFF;
+  --ink: #26232B;
+  --muted: #6F6877;
+  --line: #EDE4F6;
+  --accent: #8420F4;
+  --accent-2: #C10DDD;
+  --purple2: #A31CF0;
+  --blue: #1593F5;
+  --tint: #F7F1FF;
+  --tint-2: #EFE4FF;
+  --on-accent: #FFFFFF;
+  --grad: linear-gradient(100deg, #8420F4 0%, #A31CF0 42%, #C10DDD 72%, #1593F5 118%);
+  --display: "Poppins", Arial, sans-serif;
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --body: "Poppins", Arial, sans-serif;
+  --wrap: 1180px;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background-color: var(--canvas); background-image: radial-gradient(rgba(132, 32, 244, .09) 1px, transparent 1.2px); background-size: 28px 28px; background-attachment: fixed; color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 clamp(18px, 4vw, 40px); }
+.serif { font-family: var(--serif); font-style: italic; font-weight: 400; }
+.eyebrow { font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+
+/* Header */
+.top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--canvas) 86%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+.mark { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; letter-spacing: -.01em; }
+.mark b { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--grad); color: var(--on-accent); font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.2rem; }
+.nav { display: flex; align-items: center; gap: clamp(12px, 2.4vw, 28px); font-size: .9rem; font-weight: 500; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--ink); }
+.nav .nav-cta { color: var(--on-accent); background: var(--ink); padding: 8px 16px; border-radius: 999px; }
+@media (max-width: 640px) { .nav .hide-sm { display: none; } }
+
+/* Hero */
+.hero { padding: clamp(40px, 7vw, 84px) 0 clamp(40px, 6vw, 72px); overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.name { font-size: clamp(3.4rem, 9.2vw, 7.4rem); line-height: .9; letter-spacing: -.045em; font-weight: 800; }
+.name .serif { display: block; font-size: 1.08em; letter-spacing: -.02em; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .06em; }
+.role { font-size: clamp(1.05rem, 1.6vw, 1.25rem); font-weight: 600; margin: 22px 0 6px; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: .92rem; margin: 0 0 22px; padding: 0; list-style: none; }
+.meta li { display: flex; align-items: center; gap: 8px; }
+.meta li + li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+.meta .open { color: var(--ink); font-weight: 600; }
+.lede { max-width: 54ch; color: var(--muted); margin: 0 0 28px; }
+.lede strong { color: var(--ink); font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; font-weight: 600; font-size: .95rem; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.btn-main { background: var(--grad); color: var(--on-accent); box-shadow: 0 10px 28px -12px var(--accent); }
+.btn-main:hover { transform: translateY(-2px); box-shadow: 0 16px 34px -12px var(--accent); }
+.btn-ghost { border: 1.5px solid var(--line); background: var(--surface); }
+.btn-ghost:hover { border-color: var(--accent); }
+.stats { display: flex; flex-wrap: wrap; gap: clamp(20px, 4vw, 44px); margin: 36px 0 0; padding: 26px 0 0; border-top: 1px solid var(--line); list-style: none; }
+.stats b { display: block; font-family: var(--display); font-size: clamp(1.8rem, 3vw, 2.3rem); font-weight: 800; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.stats span { font-size: .82rem; color: var(--muted); }
+
+.stage { position: relative; height: clamp(420px, 46vw, 560px); }
+.halo { position: absolute; left: 50%; bottom: 0; width: 82%; aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle at 70% 80%, var(--blue), transparent 55%), radial-gradient(circle at 25% 20%, var(--accent-2), var(--purple2) 45%, var(--accent) 75%); opacity: .95; }
+.flyer { position: absolute; width: 38%; border-radius: 14px; overflow: hidden; box-shadow: 0 22px 44px -18px rgba(34, 15, 60, .55); border: 4px solid var(--surface); transform: translate(var(--x), var(--y)) rotate(var(--r)); animation: fan .95s cubic-bezier(.2, .8, .2, 1) both; animation-delay: var(--d); }
+.flyer img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.f1 { --x: -6%; --y: 8%; --r: -11deg; --d: .05s; left: 0; top: 4%; }
+.f2 { --x: 6%; --y: 0%; --r: 9deg; --d: .15s; right: 0; top: 0; }
+.f3 { --x: 0%; --y: 0%; --r: -4deg; --d: .25s; right: 4%; bottom: 6%; width: 30%; z-index: 3; }
+.portrait { position: absolute; left: 50%; bottom: 0; height: 96%; width: auto; max-width: none; transform: translateX(-50%); z-index: 2; filter: drop-shadow(0 18px 30px rgba(34, 15, 60, .28)); }
+@keyframes fan { from { transform: translate(0, 12%) rotate(0deg); } }
+@media (prefers-reduced-motion: reduce) { .flyer { animation: none; } html { scroll-behavior: auto; } .btn { transition: none; } }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .stage { height: 430px; max-width: 460px; width: 100%; margin: 8px auto 0; }
+}
+
+/* Marquee */
+.ribbon { background: var(--ink); color: var(--canvas); overflow: hidden; border-block: 1px solid var(--ink); }
+.ribbon-track { display: flex; width: max-content; gap: 28px; padding: 16px 0; animation: slide 46s linear infinite; font-size: clamp(1.25rem, 2.2vw, 1.7rem); }
+.ribbon-track span { font-family: var(--serif); font-style: italic; white-space: nowrap; }
+.ribbon-track i { font-style: normal; color: var(--accent-2); }
+@keyframes slide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ribbon-track { animation: none; } }
+
+/* Sections */
+section { scroll-margin-top: 72px; }
+.sec { padding: clamp(56px, 8vw, 104px) 0; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 18px 32px; margin-bottom: clamp(26px, 4vw, 44px); }
+.sec-head h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.02; letter-spacing: -.035em; font-weight: 800; }
+.sec-head h2 .serif { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .08em; font-size: 1.08em; }
+.sec-head p { margin: 10px 0 0; color: var(--muted); max-width: 52ch; }
+
+/* Filters */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: inherit; font-size: .88rem; font-weight: 500; cursor: pointer; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); padding: 8px 15px; border-radius: 999px; display: inline-flex; gap: 7px; align-items: center; }
+.chip small { color: var(--muted); font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--canvas); border-color: var(--ink); }
+.chip[aria-pressed="true"] small { color: inherit; opacity: .7; }
+
+/* Projects */
+.projects { display: grid; gap: 0; }
+.proj { display: grid; grid-template-columns: minmax(230px, 300px) 1fr; gap: clamp(20px, 3vw, 40px); padding: clamp(26px, 3.4vw, 38px) 0; border-top: 1px solid var(--line); }
+.proj:last-child { border-bottom: 1px solid var(--line); }
+.proj[hidden] { display: none; }
+.proj-no { font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 1.5rem; line-height: 1; }
+.proj h3 { font-size: clamp(1.4rem, 2.2vw, 1.75rem); letter-spacing: -.025em; font-weight: 700; margin: 8px 0 2px; }
+.proj-cat { margin: 0 0 12px; font-size: .85rem; color: var(--muted); font-weight: 500; }
+.proj-desc { margin: 0 0 14px; font-size: .94rem; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.tags li { font-size: .74rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--tint-2); color: var(--accent); }
+.strip { list-style: none; margin: 0; padding: 4px 2px 14px; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: var(--line) transparent; min-width: 0; }
+.strip li { flex: none; scroll-snap-align: start; }
+.shot { display: block; padding: 0; border: 0; background: var(--tint); border-radius: 12px; overflow: hidden; cursor: zoom-in; box-shadow: 0 1px 0 var(--line), 0 12px 26px -18px rgba(34, 15, 60, .45); transition: transform .25s ease; }
+.shot:hover { transform: translateY(-4px); }
+.shot img { height: 300px; width: auto; max-width: none; }
+@media (max-width: 760px) {
+  .proj { grid-template-columns: 1fr; }
+  .shot img { height: 250px; }
+}
+@media (prefers-reduced-motion: reduce) { .shot { transition: none; } }
+
+/* About + experience */
+.about { background: linear-gradient(180deg, #F8F3FF, #EFE3FF); border-block: 1px solid var(--line); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); }
+.about-copy p { color: var(--muted); max-width: 58ch; margin: 0 0 16px; }
+.about-copy p strong { color: var(--ink); font-weight: 600; }
+.pull { font-family: var(--serif); font-style: italic; font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.25; color: var(--ink) !important; margin: 0 0 24px !important; }
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.timeline li { position: relative; padding: 0 0 26px 26px; border-left: 2px solid var(--line); }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2.5px solid var(--accent); }
+.timeline li.now::before { background: var(--accent); }
+.when { font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-variant-numeric: tabular-nums; }
+.timeline h3 { font-size: 1.08rem; font-weight: 700; letter-spacing: -.01em; margin: 2px 0 0; }
+.timeline .org { font-size: .9rem; color: var(--muted); margin: 0 0 6px; }
+.timeline p.what { margin: 0; font-size: .9rem; color: var(--muted); max-width: 52ch; }
+.h-small { font-size: 1.15rem; font-weight: 700; margin: 0 0 18px; letter-spacing: -.01em; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 3vw, 32px); }
+.skill { padding-top: 18px; border-top: 2px solid var(--ink); }
+.skill h3 { font-size: 1.15rem; font-weight: 700; margin: 0 0 10px; }
+.skill ul { margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: .94rem; display: grid; gap: 6px; }
+.tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(28px, 4vw, 40px); list-style: none; padding: 0; }
+.tools li { border: 1.5px solid var(--line); background: var(--surface); padding: 7px 14px; border-radius: 10px; font-size: .88rem; font-weight: 500; }
+@media (max-width: 860px) { .about-grid, .skills { grid-template-columns: 1fr; } }
+
+/* Kind words */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 48px); }
+.quotes figure { margin: 0; }
+.quotes blockquote { margin: 0 0 16px; font-family: var(--serif); font-size: clamp(1.25rem, 1.9vw, 1.5rem); line-height: 1.35; }
+.quotes blockquote::before { content: "“"; display: block; font-size: 3.4rem; line-height: .6; color: var(--accent); margin-bottom: 10px; }
+.quotes figcaption { font-size: .86rem; color: var(--muted); }
+.quotes figcaption b { color: var(--ink); font-weight: 600; display: block; }
+@media (max-width: 860px) { .quotes { grid-template-columns: 1fr; } }
+
+/* Education */
+.edu { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 48px; margin-top: clamp(40px, 6vw, 64px); padding-top: 28px; border-top: 1px solid var(--line); }
+.edu ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .92rem; display: grid; gap: 6px; }
+@media (max-width: 760px) { .edu { grid-template-columns: 1fr; } }
+
+/* Contact */
+.contact { background: var(--grad); color: var(--on-accent); }
+.contact .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px 56px; align-items: end; }
+.contact h2 { font-size: clamp(2.2rem, 5.4vw, 4.2rem); line-height: .98; letter-spacing: -.04em; font-weight: 800; }
+.contact h2 .serif { font-size: 1.06em; }
+.contact p { margin: 18px 0 0; max-width: 46ch; opacity: .9; }
+.reach { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.reach li { padding: 16px 0; border-bottom: 1px solid rgba(255, 255, 255, .35); }
+.reach span { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .14em; opacity: .8; }
+.reach a { font-size: clamp(1.05rem, 1.9vw, 1.3rem); font-weight: 600; text-decoration: none; word-break: break-word; }
+.reach a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.contact .btn-ghost { background: transparent; color: var(--on-accent); border-color: rgba(255, 255, 255, .6); margin-top: 22px; }
+.contact .btn-ghost:hover { border-color: #fff; }
+@media (max-width: 860px) { .contact .wrap { grid-template-columns: 1fr; } }
+footer { padding: 28px 0; font-size: .85rem; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+/* Lightbox */
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: min(94vw, 1100px); max-height: 94vh; overflow: visible; }
+dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
+.lb-fig { margin: 0; display: grid; gap: 12px; justify-items: center; }
+.lb-fig img { max-height: 82vh; width: auto; max-width: min(94vw, 1100px); border-radius: 12px; }
+.lb-fig figcaption { color: #fff; font-size: .9rem; opacity: .85; }
+.lb-btn { position: fixed; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, .14); color: #fff; font-size: 1.4rem; cursor: pointer; }
+.lb-btn:hover { background: rgba(255, 255, 255, .26); }
+.lb-prev { left: 16px; } .lb-next { right: 16px; }
+.lb-close { top: 18px; right: 16px; transform: none; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top"><b>A</b> Ariel Miller</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a class="hide-sm" href="#about">Experience</a>
+      <a class="hide-sm" href="#skills">Skills</a>
+      <a class="nav-cta" href="ariel-miller-resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Portfolio</p>
+        <h1 class="name">Ariel <span class="serif">Miller</span></h1>
+        <p class="role">Graphic Designer · Social Media Content · Web Design</p>
+        <ul class="meta">
+          <li>Age 25</li>
+          <li>St. Michael, Barbados</li>
+          <li class="open">Open to full-time roles</li>
+        </ul>
+        <p class="lede">I design the graphics, menus, flyers and social content that small businesses use every day, and I take my own photos, edit short-form video and build websites. Most recently I was <strong>Communications &amp; Creative Design Specialist</strong> at Altus Regional Consulting Solutions, promoted within five months.</p>
+        <div class="cta">
+          <a class="btn btn-main" href="#work">See my work ↓</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+        <ul class="stats">
+          <li><b>50+</b><span>designs delivered</span></li>
+          <li><b>30+</b><span>brands supported</span></li>
+          <li><b>3+</b><span>years designing</span></li>
+        </ul>
+      </div>
+      <div class="stage" aria-hidden="true">
+        <div class="halo"></div>
+        <div class="flyer f1"><img src="assets/images/portfolio/tre-hair/01.webp" alt=""></div>
+        <div class="flyer f2"><img src="assets/images/portfolio/crumbles-cookies/05.webp" alt=""></div>
+        <img class="portrait" src="assets/images/ariel-profile.png" alt="" width="1084" height="1451">
+        <div class="flyer f3"><img src="assets/images/portfolio/epic-eats/01.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ribbon" aria-label="Brands I have designed for">
+    <div class="ribbon-track"><span>TRE Hair</span><i aria-hidden="true">✦</i><span>LUXE BY HER</span><i aria-hidden="true">✦</i><span>Crumbles &amp; Cookies</span><i aria-hidden="true">✦</i><span>Epic Eats</span><i aria-hidden="true">✦</i><span>Sugared by Bri</span><i aria-hidden="true">✦</i><span>Crave &amp; Co</span><i aria-hidden="true">✦</i><span>Unique Waffle Bites</span><i aria-hidden="true">✦</i><span>Nova Lounge</span><i aria-hidden="true">✦</i><span>Doughzy</span><i aria-hidden="true">✦</i><span>Supremo Glass</span><i aria-hidden="true">✦</i><span>Apex Car Rentals</span><i aria-hidden="true">✦</i><span>Crave Box</span><i aria-hidden="true">✦</i><span>Shenika&#x27;s Sweet Treats</span><i aria-hidden="true">✦</i><span>TRE Hair</span><i aria-hidden="true">✦</i><span>LUXE BY HER</span><i aria-hidden="true">✦</i><span>Crumbles &amp; Cookies</span><i aria-hidden="true">✦</i><span>Epic Eats</span><i aria-hidden="true">✦</i><span>Sugared by Bri</span><i aria-hidden="true">✦</i><span>Crave &amp; Co</span><i aria-hidden="true">✦</i><span>Unique Waffle Bites</span><i aria-hidden="true">✦</i><span>Nova Lounge</span><i aria-hidden="true">✦</i><span>Doughzy</span><i aria-hidden="true">✦</i><span>Supremo Glass</span><i aria-hidden="true">✦</i><span>Apex Car Rentals</span><i aria-hidden="true">✦</i><span>Crave Box</span><i aria-hidden="true">✦</i><span>Shenika&#x27;s Sweet Treats</span><i aria-hidden="true">✦</i></div>
+  </div>
+
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2>49 designs for <span class="serif">13 brands</span></h2>
+          <p>Beauty, food, automotive and service brands, each with its own look. Click any design to see it full size.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="chip" type="button" data-f="all" aria-pressed="true">All <small>13</small></button>
+          <button class="chip" type="button" data-f="beauty" aria-pressed="false">Beauty &amp; Lifestyle <small>4</small></button>
+          <button class="chip" type="button" data-f="food" aria-pressed="false">Food &amp; Hospitality <small>7</small></button>
+          <button class="chip" type="button" data-f="services" aria-pressed="false">Services &amp; Automotive <small>2</small></button>
+        </div>
+      </div>
+      <div class="projects">
+      <article class="proj" data-cat="beauty" id="p-tre-hair">
+        <div class="proj-meta">
+          <span class="proj-no">01</span>
+          <h3>TRE Hair</h3>
+          <p class="proj-cat">Beauty &amp; Hair · 6 designs</p>
+          <p class="proj-desc">A refined, feminine price list and product series for a hair extensions brand, with bundle deals, care instructions and policies laid out so customers can follow them at a glance.</p>
+          <ul class="tags"><li>Price lists</li><li>Care guides</li><li>Social series</li></ul>
+        </div>
+        <ul class="strip" aria-label="TRE Hair designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/tre-hair/01.webp" data-cap="TRE Hair · 1 of 6" aria-label="Open TRE Hair design 1 of 6"><img src="assets/images/portfolio/tre-hair/01.webp" alt="TRE Hair design 1 of 6" width="1440" height="1800" loading="eager" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/tre-hair/02.webp" data-cap="TRE Hair · 2 of 6" aria-label="Open TRE Hair design 2 of 6"><img src="assets/images/portfolio/tre-hair/02.webp" alt="TRE Hair design 2 of 6" width="1440" height="1800" loading="eager" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/tre-hair/03.webp" data-cap="TRE Hair · 3 of 6" aria-label="Open TRE Hair design 3 of 6"><img src="assets/images/portfolio/tre-hair/03.webp" alt="TRE Hair design 3 of 6" width="1440" height="1800" loading="eager" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/tre-hair/04.webp" data-cap="TRE Hair · 4 of 6" aria-label="Open TRE Hair design 4 of 6"><img src="assets/images/portfolio/tre-hair/04.webp" alt="TRE Hair design 4 of 6" width="1440" height="1800" loading="eager" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/tre-hair/05.webp" data-cap="TRE Hair · 5 of 6" aria-label="Open TRE Hair design 5 of 6"><img src="assets/images/portfolio/tre-hair/05.webp" alt="TRE Hair design 5 of 6" width="1440" height="1800" loading="eager" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/tre-hair/06.webp" data-cap="TRE Hair · 6 of 6" aria-label="Open TRE Hair design 6 of 6"><img src="assets/images/portfolio/tre-hair/06.webp" alt="TRE Hair design 6 of 6" width="1440" height="1800" loading="eager" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="beauty" id="p-luxe-by-her">
+        <div class="proj-meta">
+          <span class="proj-no">02</span>
+          <h3>LUXE BY HER</h3>
+          <p class="proj-cat">Beauty &amp; Hair · 1 design</p>
+          <p class="proj-desc">A luxury identity for a hair bundles label: a rich cocoa script wordmark with a warm gold palette.</p>
+          <ul class="tags"><li>Logo</li><li>Brand identity</li></ul>
+        </div>
+        <ul class="strip" aria-label="LUXE BY HER designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/luxe-by-her/01.webp" data-cap="LUXE BY HER · 1 of 1" aria-label="Open LUXE BY HER design 1 of 1"><img src="assets/images/portfolio/luxe-by-her/01.webp" alt="LUXE BY HER design 1 of 1" width="1080" height="1080" loading="eager" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="beauty" id="p-sugared-by-bri">
+        <div class="proj-meta">
+          <span class="proj-no">03</span>
+          <h3>Sugared by Bri</h3>
+          <p class="proj-cat">Beauty · 1 design</p>
+          <p class="proj-desc">A bright, feminine Crop Over specials flyer with package pricing and booking details that are easy to act on.</p>
+          <ul class="tags"><li>Promo flyer</li><li>Seasonal campaign</li></ul>
+        </div>
+        <ul class="strip" aria-label="Sugared by Bri designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/sugared-by-bri/01.webp" data-cap="Sugared by Bri · 1 of 1" aria-label="Open Sugared by Bri design 1 of 1"><img src="assets/images/portfolio/sugared-by-bri/01.webp" alt="Sugared by Bri design 1 of 1" width="1080" height="1350" loading="lazy" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="beauty" id="p-nova-lounge">
+        <div class="proj-meta">
+          <span class="proj-no">04</span>
+          <h3>Nova Lounge</h3>
+          <p class="proj-cat">Fashion &amp; Lifestyle · 1 design</p>
+          <p class="proj-desc">A sleek, understated logo that lets a luxury loungewear brand feel elevated.</p>
+          <ul class="tags"><li>Logo</li><li>Brand identity</li></ul>
+        </div>
+        <ul class="strip" aria-label="Nova Lounge designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/nova-lounge/01.webp" data-cap="Nova Lounge · 1 of 1" aria-label="Open Nova Lounge design 1 of 1"><img src="assets/images/portfolio/nova-lounge/01.webp" alt="Nova Lounge design 1 of 1" width="1080" height="1080" loading="lazy" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="food" id="p-crumbles-cookies">
+        <div class="proj-meta">
+          <span class="proj-no">05</span>
+          <h3>Crumbles &amp; Cookies</h3>
+          <p class="proj-cat">Food &amp; Hospitality · 12 designs</p>
+          <p class="proj-desc">A full social series for a home bakery: warm, playful and homemade, with tempting product shots and witty headlines.</p>
+          <ul class="tags"><li>Social series</li><li>Menus</li><li>Copywriting</li></ul>
+        </div>
+        <ul class="strip" aria-label="Crumbles &amp; Cookies designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/01.webp" data-cap="Crumbles &amp; Cookies · 1 of 12" aria-label="Open Crumbles &amp; Cookies design 1 of 12"><img src="assets/images/portfolio/crumbles-cookies/01.webp" alt="Crumbles &amp; Cookies design 1 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/02.webp" data-cap="Crumbles &amp; Cookies · 2 of 12" aria-label="Open Crumbles &amp; Cookies design 2 of 12"><img src="assets/images/portfolio/crumbles-cookies/02.webp" alt="Crumbles &amp; Cookies design 2 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/03.webp" data-cap="Crumbles &amp; Cookies · 3 of 12" aria-label="Open Crumbles &amp; Cookies design 3 of 12"><img src="assets/images/portfolio/crumbles-cookies/03.webp" alt="Crumbles &amp; Cookies design 3 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/04.webp" data-cap="Crumbles &amp; Cookies · 4 of 12" aria-label="Open Crumbles &amp; Cookies design 4 of 12"><img src="assets/images/portfolio/crumbles-cookies/04.webp" alt="Crumbles &amp; Cookies design 4 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/05.webp" data-cap="Crumbles &amp; Cookies · 5 of 12" aria-label="Open Crumbles &amp; Cookies design 5 of 12"><img src="assets/images/portfolio/crumbles-cookies/05.webp" alt="Crumbles &amp; Cookies design 5 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/06.webp" data-cap="Crumbles &amp; Cookies · 6 of 12" aria-label="Open Crumbles &amp; Cookies design 6 of 12"><img src="assets/images/portfolio/crumbles-cookies/06.webp" alt="Crumbles &amp; Cookies design 6 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/07.webp" data-cap="Crumbles &amp; Cookies · 7 of 12" aria-label="Open Crumbles &amp; Cookies design 7 of 12"><img src="assets/images/portfolio/crumbles-cookies/07.webp" alt="Crumbles &amp; Cookies design 7 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/08.webp" data-cap="Crumbles &amp; Cookies · 8 of 12" aria-label="Open Crumbles &amp; Cookies design 8 of 12"><img src="assets/images/portfolio/crumbles-cookies/08.webp" alt="Crumbles &amp; Cookies design 8 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/09.webp" data-cap="Crumbles &amp; Cookies · 9 of 12" aria-label="Open Crumbles &amp; Cookies design 9 of 12"><img src="assets/images/portfolio/crumbles-cookies/09.webp" alt="Crumbles &amp; Cookies design 9 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/10.webp" data-cap="Crumbles &amp; Cookies · 10 of 12" aria-label="Open Crumbles &amp; Cookies design 10 of 12"><img src="assets/images/portfolio/crumbles-cookies/10.webp" alt="Crumbles &amp; Cookies design 10 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/11.webp" data-cap="Crumbles &amp; Cookies · 11 of 12" aria-label="Open Crumbles &amp; Cookies design 11 of 12"><img src="assets/images/portfolio/crumbles-cookies/11.webp" alt="Crumbles &amp; Cookies design 11 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crumbles-cookies/12.webp" data-cap="Crumbles &amp; Cookies · 12 of 12" aria-label="Open Crumbles &amp; Cookies design 12 of 12"><img src="assets/images/portfolio/crumbles-cookies/12.webp" alt="Crumbles &amp; Cookies design 12 of 12" width="1440" height="1800" loading="lazy" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="food" id="p-epic-eats">
+        <div class="proj-meta">
+          <span class="proj-no">06</span>
+          <h3>Epic Eats</h3>
+          <p class="proj-cat">Food &amp; Hospitality · 4 designs</p>
+          <p class="proj-desc">Bright orange, bold type and mouth-watering food shots give Epic Eats a fast, fun personality.</p>
+          <ul class="tags"><li>Promo flyers</li><li>Menus</li></ul>
+        </div>
+        <ul class="strip" aria-label="Epic Eats designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/epic-eats/01.webp" data-cap="Epic Eats · 1 of 4" aria-label="Open Epic Eats design 1 of 4"><img src="assets/images/portfolio/epic-eats/01.webp" alt="Epic Eats design 1 of 4" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/epic-eats/02.webp" data-cap="Epic Eats · 2 of 4" aria-label="Open Epic Eats design 2 of 4"><img src="assets/images/portfolio/epic-eats/02.webp" alt="Epic Eats design 2 of 4" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/epic-eats/04.webp" data-cap="Epic Eats · 3 of 4" aria-label="Open Epic Eats design 3 of 4"><img src="assets/images/portfolio/epic-eats/04.webp" alt="Epic Eats design 3 of 4" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/epic-eats/05.webp" data-cap="Epic Eats · 4 of 4" aria-label="Open Epic Eats design 4 of 4"><img src="assets/images/portfolio/epic-eats/05.webp" alt="Epic Eats design 4 of 4" width="1440" height="1800" loading="lazy" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="food" id="p-crave-and-co">
+        <div class="proj-meta">
+          <span class="proj-no">07</span>
+          <h3>Crave &amp; Co</h3>
+          <p class="proj-cat">Food &amp; Hospitality · 8 designs</p>
+          <p class="proj-desc">Moody black and fiery orange give Crave &amp; Co a bold, late-night feel across eight menu and combo posts.</p>
+          <ul class="tags"><li>Menu series</li><li>Brand identity</li></ul>
+        </div>
+        <ul class="strip" aria-label="Crave &amp; Co designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/crave-and-co/01.webp" data-cap="Crave &amp; Co · 1 of 8" aria-label="Open Crave &amp; Co design 1 of 8"><img src="assets/images/portfolio/crave-and-co/01.webp" alt="Crave &amp; Co design 1 of 8" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crave-and-co/02.webp" data-cap="Crave &amp; Co · 2 of 8" aria-label="Open Crave &amp; Co design 2 of 8"><img src="assets/images/portfolio/crave-and-co/02.webp" alt="Crave &amp; Co design 2 of 8" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crave-and-co/03.webp" data-cap="Crave &amp; Co · 3 of 8" aria-label="Open Crave &amp; Co design 3 of 8"><img src="assets/images/portfolio/crave-and-co/03.webp" alt="Crave &amp; Co design 3 of 8" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crave-and-co/04.webp" data-cap="Crave &amp; Co · 4 of 8" aria-label="Open Crave &amp; Co design 4 of 8"><img src="assets/images/portfolio/crave-and-co/04.webp" alt="Crave &amp; Co design 4 of 8" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crave-and-co/05.webp" data-cap="Crave &amp; Co · 5 of 8" aria-label="Open Crave &amp; Co design 5 of 8"><img src="assets/images/portfolio/crave-and-co/05.webp" alt="Crave &amp; Co design 5 of 8" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crave-and-co/06.webp" data-cap="Crave &amp; Co · 6 of 8" aria-label="Open Crave &amp; Co design 6 of 8"><img src="assets/images/portfolio/crave-and-co/06.webp" alt="Crave &amp; Co design 6 of 8" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crave-and-co/07.webp" data-cap="Crave &amp; Co · 7 of 8" aria-label="Open Crave &amp; Co design 7 of 8"><img src="assets/images/portfolio/crave-and-co/07.webp" alt="Crave &amp; Co design 7 of 8" width="1440" height="1800" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crave-and-co/08.webp" data-cap="Crave &amp; Co · 8 of 8" aria-label="Open Crave &amp; Co design 8 of 8"><img src="assets/images/portfolio/crave-and-co/08.webp" alt="Crave &amp; Co design 8 of 8" width="1440" height="1800" loading="lazy" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="food" id="p-unique-waffle-bites">
+        <div class="proj-meta">
+          <span class="proj-no">08</span>
+          <h3>Unique Waffle Bites</h3>
+          <p class="proj-cat">Food &amp; Hospitality · 4 designs</p>
+          <p class="proj-desc">Bright and cheerful product posts and loyalty cards, designed to feel as fun as the waffles themselves.</p>
+          <ul class="tags"><li>Social posts</li><li>Loyalty cards</li></ul>
+        </div>
+        <ul class="strip" aria-label="Unique Waffle Bites designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/unique-waffle-bites/01.webp" data-cap="Unique Waffle Bites · 1 of 4" aria-label="Open Unique Waffle Bites design 1 of 4"><img src="assets/images/portfolio/unique-waffle-bites/01.webp" alt="Unique Waffle Bites design 1 of 4" width="1080" height="1350" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/unique-waffle-bites/02.webp" data-cap="Unique Waffle Bites · 2 of 4" aria-label="Open Unique Waffle Bites design 2 of 4"><img src="assets/images/portfolio/unique-waffle-bites/02.webp" alt="Unique Waffle Bites design 2 of 4" width="1080" height="1350" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/unique-waffle-bites/03.webp" data-cap="Unique Waffle Bites · 3 of 4" aria-label="Open Unique Waffle Bites design 3 of 4"><img src="assets/images/portfolio/unique-waffle-bites/03.webp" alt="Unique Waffle Bites design 3 of 4" width="1080" height="1080" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/unique-waffle-bites/04.webp" data-cap="Unique Waffle Bites · 4 of 4" aria-label="Open Unique Waffle Bites design 4 of 4"><img src="assets/images/portfolio/unique-waffle-bites/04.webp" alt="Unique Waffle Bites design 4 of 4" width="1800" height="1374" loading="lazy" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="food" id="p-doughzy">
+        <div class="proj-meta">
+          <span class="proj-no">09</span>
+          <h3>Doughzy</h3>
+          <p class="proj-cat">Food &amp; Hospitality · 4 designs</p>
+          <p class="proj-desc">Playful packaging and mockups that make the Doughzy brand feel real and ready for the shelf.</p>
+          <ul class="tags"><li>Packaging</li><li>Mockups</li></ul>
+        </div>
+        <ul class="strip" aria-label="Doughzy designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/doughzy/01.webp" data-cap="Doughzy · 1 of 4" aria-label="Open Doughzy design 1 of 4"><img src="assets/images/portfolio/doughzy/01.webp" alt="Doughzy design 1 of 4" width="1800" height="1350" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/doughzy/02.webp" data-cap="Doughzy · 2 of 4" aria-label="Open Doughzy design 2 of 4"><img src="assets/images/portfolio/doughzy/02.webp" alt="Doughzy design 2 of 4" width="1800" height="1610" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/doughzy/03.webp" data-cap="Doughzy · 3 of 4" aria-label="Open Doughzy design 3 of 4"><img src="assets/images/portfolio/doughzy/03.webp" alt="Doughzy design 3 of 4" width="1800" height="1610" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/doughzy/04.webp" data-cap="Doughzy · 4 of 4" aria-label="Open Doughzy design 4 of 4"><img src="assets/images/portfolio/doughzy/04.webp" alt="Doughzy design 4 of 4" width="1800" height="1610" loading="lazy" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="food" id="p-crave-box">
+        <div class="proj-meta">
+          <span class="proj-no">10</span>
+          <h3>Crave Box</h3>
+          <p class="proj-cat">Food &amp; Hospitality · 2 designs</p>
+          <p class="proj-desc">A bold orange and black logo and packaging that make the food look ready to order.</p>
+          <ul class="tags"><li>Logo</li><li>Packaging</li></ul>
+        </div>
+        <ul class="strip" aria-label="Crave Box designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/crave-box/01.webp" data-cap="Crave Box · 1 of 2" aria-label="Open Crave Box design 1 of 2"><img src="assets/images/portfolio/crave-box/01.webp" alt="Crave Box design 1 of 2" width="1080" height="1080" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/crave-box/02.webp" data-cap="Crave Box · 2 of 2" aria-label="Open Crave Box design 2 of 2"><img src="assets/images/portfolio/crave-box/02.webp" alt="Crave Box design 2 of 2" width="1800" height="1350" loading="lazy" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="food" id="p-shenika-s-sweet-treats">
+        <div class="proj-meta">
+          <span class="proj-no">11</span>
+          <h3>Shenika&#x27;s Sweet Treats</h3>
+          <p class="proj-cat">Food &amp; Hospitality · 1 design</p>
+          <p class="proj-desc">A soft, sweet and personal script logo for a dessert business.</p>
+          <ul class="tags"><li>Logo</li></ul>
+        </div>
+        <ul class="strip" aria-label="Shenika&#x27;s Sweet Treats designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/shenika-s-sweet-treats/01.webp" data-cap="Shenika&#x27;s Sweet Treats · 1 of 1" aria-label="Open Shenika&#x27;s Sweet Treats design 1 of 1"><img src="assets/images/portfolio/shenika-s-sweet-treats/01.webp" alt="Shenika&#x27;s Sweet Treats design 1 of 1" width="1080" height="1080" loading="lazy" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="services" id="p-supremo-glass">
+        <div class="proj-meta">
+          <span class="proj-no">12</span>
+          <h3>Supremo Glass</h3>
+          <p class="proj-cat">Home &amp; Commercial Services · 3 designs</p>
+          <p class="proj-desc">A clean, modern identity and business cards that reflect the precision of Supremo Glass&#x27;s work.</p>
+          <ul class="tags"><li>Logo</li><li>Business cards</li></ul>
+        </div>
+        <ul class="strip" aria-label="Supremo Glass designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/supremo-glass/01.webp" data-cap="Supremo Glass · 1 of 3" aria-label="Open Supremo Glass design 1 of 3"><img src="assets/images/portfolio/supremo-glass/01.webp" alt="Supremo Glass design 1 of 3" width="1080" height="1080" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/supremo-glass/02.webp" data-cap="Supremo Glass · 2 of 3" aria-label="Open Supremo Glass design 2 of 3"><img src="assets/images/portfolio/supremo-glass/02.webp" alt="Supremo Glass design 2 of 3" width="1800" height="1400" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/supremo-glass/supremo-glass-business-card.webp" data-cap="Supremo Glass · 3 of 3" aria-label="Open Supremo Glass design 3 of 3"><img src="assets/images/portfolio/supremo-glass/supremo-glass-business-card.webp" alt="Supremo Glass design 3 of 3" width="2048" height="1792" loading="lazy" decoding="async"></button></li></ul>
+      </article>
+      <article class="proj" data-cat="services" id="p-apex-car-rentals">
+        <div class="proj-meta">
+          <span class="proj-no">13</span>
+          <h3>Apex Car Rentals</h3>
+          <p class="proj-cat">Automotive · 2 designs</p>
+          <p class="proj-desc">Sharp black and red branding for quick, confident car rental promotions.</p>
+          <ul class="tags"><li>Logo</li><li>Stationery</li></ul>
+        </div>
+        <ul class="strip" aria-label="Apex Car Rentals designs"><li><button class="shot" type="button" data-full="assets/images/portfolio/apex-car-rentals/01.webp" data-cap="Apex Car Rentals · 1 of 2" aria-label="Open Apex Car Rentals design 1 of 2"><img src="assets/images/portfolio/apex-car-rentals/01.webp" alt="Apex Car Rentals design 1 of 2" width="1080" height="1080" loading="lazy" decoding="async"></button></li><li><button class="shot" type="button" data-full="assets/images/portfolio/apex-car-rentals/02.webp" data-cap="Apex Car Rentals · 2 of 2" aria-label="Open Apex Car Rentals design 2 of 2"><img src="assets/images/portfolio/apex-car-rentals/02.webp" alt="Apex Car Rentals design 2 of 2" width="1800" height="1200" loading="lazy" decoding="async"></button></li></ul>
+      </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <p class="eyebrow">About me</p>
+        <p class="pull">I notice design everywhere: the menu on the table, the sign above the shop, the font on the flyer.</p>
+        <p>I'm Ariel, a 25-year-old designer from St. Michael, Barbados. I care about how colour, type and layout make people feel, and I'll try version after version until a design says exactly what a business means.</p>
+        <p>At <strong>Altus Regional Consulting Solutions</strong> I created social media content, branded communications and marketing collateral, managed website updates and owned the firm's visual identity across digital and print. Through my own studio, <strong>Designify</strong>, I've designed logos, menus, packaging and social campaigns for small businesses across Barbados, and I designed and built the studio's website myself.</p>
+        <p>I also bring a customer-facing background from contact-centre and retail roles, so I design with the customer in mind.</p>
+      </div>
+      <div>
+        <h2 class="h-small">Experience</h2>
+        <ol class="timeline">
+          <li class="now">
+            <span class="when">Sep 2026 – Present</span>
+            <h3>Temporary Clerk, Legal &amp; Administrative Support</h3>
+            <p class="org">Altus Chambers</p>
+            <p class="what">Document preparation and formatting, correspondence, confidential records.</p>
+          </li>
+          <li>
+            <span class="when">Jan 2026 – Aug 2026</span>
+            <h3>Communications &amp; Creative Design Specialist</h3>
+            <p class="org">Altus Regional Consulting Solutions</p>
+            <p class="what">Promoted from Coordinator. Led social content, branded communications and marketing collateral; managed website content; owned the firm's visual identity; built templates used across the firm.</p>
+          </li>
+          <li>
+            <span class="when">Aug 2025 – Jan 2026</span>
+            <h3>Creative Design Coordinator</h3>
+            <p class="org">Altus Regional Consulting Solutions</p>
+            <p class="what">Produced campaign graphics and promotional materials; coordinated content and campaign logistics.</p>
+          </li>
+          <li>
+            <span class="when">Ongoing</span>
+            <h3>Designer &amp; Founder</h3>
+            <p class="org">Designify</p>
+            <p class="what">Brand identities, social media graphics, menus, packaging and websites for small businesses in Barbados.</p>
+          </li>
+          <li>
+            <span class="when">2022 – 2025</span>
+            <h3>Customer Service, Collections &amp; Cashier</h3>
+            <p class="org">KM2 Solutions · Unicomer Barbados</p>
+            <p class="what">Phone and email support, account management and payment arrangements.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Skills</p>
+          <h2>From the shoot <span class="serif">to the post</span></h2>
+        </div>
+      </div>
+      <div class="skills">
+        <div class="skill">
+          <h3>Design</h3>
+          <ul><li>Brand identity &amp; logos</li><li>Social media graphics &amp; series</li><li>Menus, flyers &amp; price lists</li><li>Packaging &amp; mockups</li><li>Templates &amp; document design</li></ul>
+        </div>
+        <div class="skill">
+          <h3>Content</h3>
+          <ul><li>Product &amp; lifestyle photography</li><li>Short-form video &amp; reels</li><li>Motion graphics</li><li>Copywriting &amp; captions</li><li>Campaign coordination</li></ul>
+        </div>
+        <div class="skill">
+          <h3>Web</h3>
+          <ul><li>Website design &amp; creation</li><li>Website content management</li><li>UI mockups</li><li>Digital business setup</li></ul>
+        </div>
+      </div>
+      <ul class="tools" aria-label="Tools">
+        <li>Canva</li><li>Figma</li><li>Affinity Designer</li><li>Affinity Photo</li><li>Affinity Publisher</li><li>Adobe Express</li><li>CapCut</li><li>Alight Motion</li><li>Microsoft Word, Excel, PowerPoint</li>
+      </ul>
+
+      <div class="edu">
+        <div>
+          <h2 class="h-small">Education</h2>
+          <ul>
+            <li>CAPE, The Alleyne School (2019 – 2021): Communication Studies, Management of Business, Entrepreneurship, Caribbean Studies, Environmental Science</li>
+            <li>CSEC, Daryll Jordan Secondary School (2012 – 2019): English A, Electronic Document Preparation &amp; Management, Office Administration and more</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="h-small">Certifications</h2>
+          <ul>
+            <li>International Marketing: Definition and Strategy (FutureLearn)</li>
+            <li>Office Procedures (Barbados Vocational Training Board)</li>
+            <li>Computer Applications (Barbados Vocational Training Board)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec about" id="words">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Kind words</p>
+          <h2>What clients <span class="serif">say</span></h2>
+        </div>
+      </div>
+      <div class="quotes">
+        <figure>
+          <blockquote>Your work has elevated my business's online presence to a high standard. You created a brand for me that is set apart from my competition.</blockquote>
+          <figcaption><b>Dé Patisserie 246</b>Online local bakery</figcaption>
+        </figure>
+        <figure>
+          <blockquote>From the logo and business cards to the social media revamp, everything was done with a professional touch and great attention to detail.</blockquote>
+          <figcaption><b>Supremo Glass</b>Home &amp; commercial services</figcaption>
+        </figure>
+        <figure>
+          <blockquote>Everything came together beautifully, and I especially loved the loyalty cards. I truly appreciate your creativity and attention to detail.</blockquote>
+          <figcaption><b>Unique Waffle Bites</b>Waffle &amp; dessert brand</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec contact" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>Let's work <span class="serif">together.</span></h2>
+        <p>I'm open to full-time roles in social media, graphic design and marketing in Barbados. I'd love to hear from you.</p>
+        <a class="btn btn-ghost" href="ariel-miller-resume.pdf" target="_blank" rel="noopener">Download résumé (PDF)</a>
+      </div>
+      <ul class="reach">
+        <li><span>Email</span><a href="mailto:ArielMiller881@gmail.com">ArielMiller881@gmail.com</a></li>
+        <li><span>Phone / WhatsApp</span><a href="tel:+12462301679">(246) 230-1679</a></li>
+        <li><span>Based in</span><a href="#top">St. Michael, Barbados</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Ariel Miller</span>
+    <span>Graphic Designer · Social Media Content · Web Design</span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Design viewer">
+  <figure class="lb-fig"><img id="lb-img" src="" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button class="lb-btn lb-prev" type="button" id="lb-prev" aria-label="Previous design">‹</button>
+  <button class="lb-btn lb-next" type="button" id="lb-next" aria-label="Next design">›</button>
+  <button class="lb-btn lb-close" type="button" id="lb-close" aria-label="Close">✕</button>
+</dialog>
+
+<script>
+(function () {
+  var chips = document.querySelectorAll('.chip');
+  var projects = document.querySelectorAll('.proj');
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var f = c.getAttribute('data-f');
+      chips.forEach(function (o) { o.setAttribute('aria-pressed', o === c ? 'true' : 'false'); });
+      projects.forEach(function (p) { p.hidden = !(f === 'all' || p.getAttribute('data-cat') === f); });
+    });
+  });
+
+  var lb = document.getElementById('lb'), img = document.getElementById('lb-img'), cap = document.getElementById('lb-cap');
+  var list = [], idx = 0;
+  function visibleShots() { return Array.prototype.filter.call(document.querySelectorAll('.shot'), function (s) { return !s.closest('.proj').hidden; }); }
+  function show(i) {
+    idx = (i + list.length) % list.length;
+    var s = list[idx];
+    img.src = s.getAttribute('data-full');
+    img.alt = s.querySelector('img').alt;
+    cap.textContent = s.getAttribute('data-cap');
+  }
+  document.querySelectorAll('.shot').forEach(function (s) {
+    s.addEventListener('click', function () {
+      list = visibleShots(); show(list.indexOf(s));
+      if (lb.showModal) { try { lb.showModal(); } catch (e) { lb.setAttribute('open', ''); } } else { lb.setAttribute('open', ''); }
+    });
+  });
+  function close() { if (lb.close) lb.close(); else lb.removeAttribute('open'); }
+  document.getElementById('lb-prev').addEventListener('click', function () { show(idx - 1); });
+  document.getElementById('lb-next').addEventListener('click', function () { show(idx + 1); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.open) return;
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+})();
+</script>
+</body>
+</html>
