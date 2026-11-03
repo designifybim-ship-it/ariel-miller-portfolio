@@ -103,8 +103,7 @@ h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
 .tick-clip { position: relative; z-index: 5; overflow: hidden; padding: 60px 0; margin: -60px 0; pointer-events: none; }
 .ticker { position: relative; overflow: hidden; padding: 18px 0; background: var(--grad); color: #fff; transform: rotate(-1.5deg); margin: 0 -20px; box-shadow: 0 14px 40px rgba(132, 32, 244, .25); pointer-events: auto; }
 .tick-track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
-.tick-track span { display: inline-flex; align-items: center; gap: 28px; padding-right: 28px; font-size: clamp(18px, 2.2vw, 28px); font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
-.tick-track span::after { content: ""; width: 14px; height: 14px; border: 2px solid currentColor; rotate: 45deg; opacity: .7; }
+.tick-track span { display: inline-flex; align-items: center; padding-right: 56px; font-size: clamp(18px, 2.2vw, 28px); font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
 .ticker:hover .tick-track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .tick-track, .serif, .mark b, .contact, .btn-main { animation: none; } }
