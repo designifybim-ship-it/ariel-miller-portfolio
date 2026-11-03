@@ -174,7 +174,7 @@ section { scroll-margin-top: 72px; }
 
 /* Tools */
 #tools { padding-top: 0; }
-.toolgrid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.toolgrid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
 .tool { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; align-items: start; padding: 20px; border-radius: 18px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); transition: transform .25s ease, box-shadow .25s ease; }
 .tool:hover { transform: translateY(-4px); box-shadow: 0 0 0 2px transparent, 0 18px 40px -22px rgba(132, 32, 244, .55); background: linear-gradient(var(--surface), var(--surface)) padding-box, var(--grad) border-box; border: 2px solid transparent; padding: 18px; }
 .tool-mark { grid-row: span 2; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--grad); background-size: 180% 180%; animation: gradshift 9s ease-in-out infinite; color: #fff; font-weight: 800; font-size: 1.05rem; letter-spacing: -.02em; box-shadow: 0 10px 22px -12px var(--accent); }
@@ -183,7 +183,6 @@ section { scroll-margin-top: 72px; }
 .tool-tag { grid-column: 2; justify-self: start; margin-top: 6px; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; background: linear-gradient(100deg, rgba(132, 32, 244, .10), rgba(193, 13, 221, .10), rgba(21, 147, 245, .10)); color: var(--accent); }
 .tool:nth-child(3n+2) .tool-mark { animation-delay: -3s; }
 .tool:nth-child(3n) .tool-mark { animation-delay: -6s; }
-@media (max-width: 960px) { .toolgrid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .toolgrid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .tool, .tool-mark { transition: none; animation: none; } }
 
@@ -492,7 +491,7 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
         </div>
         <div class="skill">
           <h3>Content</h3>
-          <ul><li>Product &amp; lifestyle photography</li><li>Short-form video &amp; reels</li><li>Motion graphics</li><li>Copywriting &amp; captions</li><li>Campaign coordination</li></ul>
+          <ul><li>Product &amp; lifestyle photography</li><li>Short-form video &amp; reels</li><li>Motion graphics &amp; animated effects</li><li>Copywriting &amp; captions</li><li>Campaign coordination</li></ul>
         </div>
         <div class="skill">
           <h3>Web</h3>
@@ -541,6 +540,11 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
           <span class="tool-tag">Web & UI</span>
         </li>
         <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Ps</span>
+          <div><h3>Photoshop</h3><p>Photo editing, retouching and compositing</p></div>
+          <span class="tool-tag">Photo</span>
+        </li>
+        <li class="tool">
           <span class="tool-mark" aria-hidden="true">Ad</span>
           <div><h3>Affinity Designer</h3><p>Logos, vector illustrations and brand identities</p></div>
           <span class="tool-tag">Design</span>
@@ -568,6 +572,11 @@ dialog.lb::backdrop { background: rgba(14, 10, 20, .88); }
         <li class="tool">
           <span class="tool-mark" aria-hidden="true">Am</span>
           <div><h3>Alight Motion</h3><p>Motion graphics and animated text</p></div>
+          <span class="tool-tag">Motion</span>
+        </li>
+        <li class="tool">
+          <span class="tool-mark" aria-hidden="true">Ec</span>
+          <div><h3>EffectCraft</h3><p>Motion graphics, animated effects and transitions</p></div>
           <span class="tool-tag">Motion</span>
         </li>
         <li class="tool">
