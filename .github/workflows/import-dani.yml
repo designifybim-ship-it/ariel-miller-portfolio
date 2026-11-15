@@ -1,0 +1,39 @@
+name: Import Dani's Sweet Lab Portfolio
+on:
+  push:
+    paths:
+      - '.github/workflows/import-dani.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  add-gallery:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out portfolio
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install local image conversion library
+        run: python -m pip install --quiet Pillow
+      - name: Get already uploaded source ZIP
+        run: |
+          curl --fail --show-error --location --retry 3 \
+            'https://d2ol7oe51mr4n9.cloudfront.net/user_3JvttCECJej9FVwTQAZRDgNwO6O/71995bce-48b7-4147-a161-7fa392bc74cb.zip' \
+            --output /tmp/danis-sweet-lab.zip
+          unzip -t /tmp/danis-sweet-lab.zip | tail -1
+      - name: Add every provided design to portfolio
+        run: python scripts/import_dani.py /tmp/danis-sweet-lab.zip
+      - name: Commit updated portfolio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assets/images/portfolio/danis-sweet-lab
+          if ! git diff --cached --quiet; then
+            git commit -m "Add Dani's Sweet Lab designs to Ariel Miller portfolio"
+            git push origin HEAD:main
+          fi
