@@ -21,8 +21,8 @@ def main():
     gallery = []
     with ZipFile(zpath) as bundle:
         names = [n for n in bundle.namelist() if n.startswith(ROOT) and n.lower().endswith(".png") and n[len(ROOT):].startswith(CATEGORIES)]
-        if len(names) != 27:
-            raise SystemExit(f"Expected 27 provided PNG files; got {len(names)}")
+        if len(names) != 26:
+            raise SystemExit(f"Expected 26 provided PNG files; got {len(names)}")
         for position, name in enumerate(names, 1):
             with Image.open(BytesIO(bundle.read(name))) as source:
                 img = source.copy()
@@ -52,7 +52,7 @@ def main():
         '        <div class="proj-meta">\n'
         '          <span class="proj-no">00</span>\n'
         "          <h3>Dani's Sweet Lab</h3>\n"
-        '          <p class="proj-cat">Food &amp; Hospitality · 27 designs</p>\n'
+        '          <p class="proj-cat">Food &amp; Hospitality · 26 designs</p>\n'
         '          <p class="proj-desc">A playful pink dessert brand identity carried across menus, food promotions, social media graphics, logo treatments and Instagram highlight covers.</p>\n'
         '          <ul class="tags"><li>Brand identity</li><li>Social media</li><li>Menus</li><li>Highlights</li></ul>\n'
         '        </div>\n'
@@ -67,7 +67,7 @@ def main():
     heading = '<h2>49 designs for <span class="serif">13 brands</span></h2>'
     if heading not in html:
         raise SystemExit("Unexpected project count heading")
-    html = html.replace(heading, '<h2>76 designs for <span class="serif">14 brands</span></h2>', 1)
+    html = html.replace(heading, '<h2>75 designs for <span class="serif">14 brands</span></h2>', 1)
     for a, b in (
         ('data-f="all" aria-pressed="true">All <small>13</small>', 'data-f="all" aria-pressed="true">All <small>14</small>'),
         ('data-f="food" aria-pressed="false">Food &amp; Hospitality <small>7</small>', 'data-f="food" aria-pressed="false">Food &amp; Hospitality <small>8</small>'),
