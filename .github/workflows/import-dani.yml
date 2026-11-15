@@ -37,3 +37,5 @@ jobs:
             git commit -m "Add Dani's Sweet Lab designs to Ariel Miller portfolio"
             git push origin HEAD:main
           fi
+
+# Source archive contains 26 individual supplied designs.
